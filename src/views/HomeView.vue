@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <div
-        class="flex text-center px-6 py-6 no-underline shadow-lg rounded-full object-top mx-10 my-6 justify-center bg-white"
+        class="flex text-center px-6 py-4 no-underline shadow-2xl rounded-full object-top mx-10 my-6 justify-center bg-white"
       >
         <li
           class="mx-6 px-4 py-2 text-lg font-bold rounded-md transform-gpu transition duration-200 cursor-pointer hover:scale-125"
@@ -28,6 +28,8 @@
   <h1 class="lower-center text-3xl font-bold">
     The largest online community of highschool programmers
   </h1>
+
+  <h1 class="text-9xl bottom animate-bounce cursor-pointer">˯</h1>
 </template>
 
 <style>
@@ -44,6 +46,15 @@
   margin: 0;
   position: absolute;
   top: 58%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.bottom {
+  margin: 0;
+  position: absolute;
+  top: 85%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
