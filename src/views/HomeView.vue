@@ -19,7 +19,7 @@
 
       <div class="">
         <h1
-          class="text-6xl font-bold text-gradiant self-center justify-self-center upper-center"
+          class="text-6xl pb-2 font-bold text-gradiant self-center justify-self-center upper-center"
         >
           r/cshighschoolers
         </h1>
