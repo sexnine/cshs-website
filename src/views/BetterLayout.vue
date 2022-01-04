@@ -21,12 +21,13 @@
 
     <div class="h-full bg-red-400">
       <div class="flex h-full flex-grow flex-col justify-center">
-        <div>
-          <h1
-            class="text-6xl pb-2 font-bold text-gradiant self-center justify-self-center"
-          >
+        <div class="flex flex-col">
+          <h1 class="text-6xl pb-2 font-bold text-gradiant">
             r/cshighschoolers
           </h1>
+          <div class="self-center w-full max-w-2xl">
+            <div class="border-2 border-black my-8 rounded-full mx-8" />
+          </div>
           <h1 class="text-3xl font-bold">
             The largest online community of highschool programmers
           </h1>
