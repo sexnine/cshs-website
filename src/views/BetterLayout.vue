@@ -18,6 +18,7 @@
         </ul>
       </nav>
     </div>
+
     <div class="h-full bg-red-400">
       <div class="flex h-full flex-grow flex-col justify-center">
         <div>

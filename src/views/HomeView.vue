@@ -1,21 +1,19 @@
 <template>
-  <body>
-    <section id="Main-Home">
-      <nav>
-        <ul>
-          <div
-            class="flex text-center px-6 py-4 no-underline shadow-2xl rounded-full object-top mx-10 my-6 justify-center bg-white"
-          >
-            <li
-              class="mx-6 px-4 py-2 text-lg font-bold rounded-md transform-gpu transition duration-200 cursor-pointer hover:scale-125"
-              v-for="link in links"
-              :key="link"
-            >
-              {{ link }}
-            </li>
-          </div>
-        </ul>
-      </nav>
+  <nav>
+    <ul>
+      <div
+        class="flex text-center px-6 py-4 no-underline shadow-2xl rounded-full object-top mx-10 my-6 justify-center bg-white"
+      >
+        <li
+          class="mx-6 px-4 py-2 text-lg font-bold rounded-md transform-gpu transition duration-200 cursor-pointer hover:scale-125"
+          v-for="link in links"
+          :key="link"
+        >
+          {{ link }}
+        </li>
+      </div>
+    </ul>
+  </nav>
 
   <section id="Main-Home" class="bg-red-400 w-full h-full">
     <h1
