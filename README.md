@@ -1,25 +1,15 @@
-# cshs-website-2
-fuck you, i use vue when i want to
+we gots vue 3, typescript, tailwind v3, i18n (lazy loaded), vue router v4, firebase, pinia (dont know how to use this mf) and ya linting sorted
 
-## Project setup
-```
-npm install
-```
+## Install
+`npx degit sexnine/vite-template <name of your sexy new project>`
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+cd into your sexy new directory
 
-### Compiles and minifies for production
-```
-npm run build
-```
+`npm i`
 
-### Lints and fixes files
+## Side note:
+If you run into this shitass error
 ```
-npm run lint
+listen EACCES: permission denied 0.0.0.0:3000
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+It's probably docker eating up all your ports (bro i kid you not docker took up every port jetbrains tried to bind to and couldnt open up my mfing ide) and it's probably time to restart your computer lol

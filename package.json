@@ -1,39 +1,45 @@
 {
-  "name": "cshs-website-2",
-  "version": "0.1.0",
+  "name": "vite-template",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "serve": "vite --host",
+    "build": "npm run lint && vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "npm run eslint && npm run prettier",
+    "eslint": "eslint --fix \"**/*.{vue,js,ts}\" || exit 0",
+    "prettier": "prettier --write \"**/*.{vue,js,ts,json}\""
   },
   "dependencies": {
-    "autoprefixer": "^10",
-    "core-js": "^3.8.3",
-    "postcss": "^8",
-    "tailwindcss": "^3",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "@fortawesome/fontawesome-svg-core": "^1.3.0",
+    "@fortawesome/free-brands-svg-icons": "^6.0.0",
+    "@fortawesome/free-solid-svg-icons": "^6.0.0",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@vueuse/core": "^7.6.2",
+    "firebase": "^9.6.7",
+    "pinia": "^2.0.11",
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0-rc.1",
-    "@vue/cli-plugin-eslint": "~5.0.0-rc.1",
-    "@vue/cli-plugin-router": "~5.0.0-rc.1",
-    "@vue/cli-service": "~5.0.0-rc.1",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@types/node": "^17.0.18",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.9.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "less": "^4.0.0",
-    "less-loader": "^8.0.0",
-    "lint-staged": "^11.1.2",
-    "prettier": "^2.4.1",
-    "vue-cli-plugin-tailwind": "^3.0.0-beta.0"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+    "eslint-plugin-vue": "^8.4.1",
+    "postcss": "^8.4.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.7",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8"
   }
 }
