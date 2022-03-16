@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export default defineStore("index", {
+export default defineStore("main", {
   state: () => {
     return {};
   },
