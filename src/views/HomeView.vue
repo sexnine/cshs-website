@@ -5,16 +5,16 @@
     class="relative -mt-[4.25rem] flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
     <div class="flex-grow"></div>
-    <div class="w-full pl-4 text-left lg:pl-16">
+    <div class="w-full pl-4 pr-4 text-left md:pl-16 xl:pl-24">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
         The <span class="">greatest</span> community of highschool programmers
       </h1>
       <div
-        class="flex w-min flex-col rounded-lg bg-white bg-opacity-50 p-5 dark:bg-gray-900"
+        class="flex w-full flex-col rounded-lg bg-white bg-opacity-50 p-5 dark:bg-gray-900 sm:w-min"
       >
         <h2 class="pb-4 text-xl">Join us!</h2>
-        <div class="flex gap-4 pb-4">
+        <div class="flex flex-col gap-4 pb-4 sm:flex-row">
           <LandingButton
             :icon="['fab', 'reddit']"
             text="Reddit"
@@ -32,7 +32,7 @@
         <LandingButton
           :icon="['fa', 'user-plus']"
           text="Sign up"
-          class="bg-pink-600 text-glow-[pink-500]"
+          class="bg-red-500 text-glow-[red-400]"
         />
       </div>
     </div>

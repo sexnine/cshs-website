@@ -5,7 +5,7 @@
     <div>
       <h1>cshighschoolers</h1>
     </div>
-    <div class="flex items-center gap-x-2">
+    <div v-if="!mobileNavBar" class="flex items-center gap-x-2">
       <NavItem
         v-for="item in navItems"
         :key="item"
@@ -13,11 +13,17 @@
         :highlighted="item == selected"
       />
     </div>
+    <div v-else>
+      <fa-icon
+        :icon="['fa', 'bars']"
+        class="rounded-md bg-white bg-opacity-50 p-2"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { computed, ref } from "vue";
   import NavItem from "./NavItem.vue";
 
   const navItems = ref([
@@ -28,6 +34,19 @@
     "Free Domains",
   ]);
   const selected = ref("Welcome");
+  const windowWidth = ref(0);
+
+  const onWindowResize = () => {
+    windowWidth.value = window.innerWidth;
+    console.log(windowWidth.value);
+  };
+
+  const mobileNavBar = computed(() => {
+    return windowWidth.value < 900;
+  });
+
+  window.addEventListener("resize", onWindowResize);
+  onWindowResize();
 </script>
 
 <style scoped>
