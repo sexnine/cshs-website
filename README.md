@@ -1,11 +1,13 @@
-we gots vue 3, typescript, tailwind v3, i18n (lazy loaded), vue router v4, firebase, pinia (dont know how to use this mf) and ya linting sorted
+New website for cshs.dev
 
-## Install
-`npx degit sexnine/vite-template <name of your sexy new project>`
+## Development
+Clone the repo `git clone https://github.com/sexnine/cshs-website.git`
 
-cd into your sexy new directory
+Change into the project directory `cd cshs-website/`
 
-`npm i`
+Install packages `npm i`
+
+Run a dev server with `npm run dev` (or `npm run serve` to bind to 0.0.0.0)
 
 ## Side note:
 If you run into this shitass error
@@ -13,3 +15,5 @@ If you run into this shitass error
 listen EACCES: permission denied 0.0.0.0:3000
 ```
 It's probably docker eating up all your ports (bro i kid you not docker took up every port jetbrains tried to bind to and couldnt open up my mfing ide) and it's probably time to restart your computer lol
+
+If the above doesn't work and your on windows, run `net stop winstat` and then `net start winstat` as adminstator in the terminal :)
