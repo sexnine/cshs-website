@@ -5,7 +5,7 @@
     class="relative -mt-[4.25rem] flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
     <div class="flex-grow"></div>
-    <div class="w-full pl-4 pr-4 text-left md:pl-16 xl:pl-24">
+    <div class="w-full pl-4 pr-4 flex flex-col items-center">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
         The <span class="">greatest</span> community of highschool programmers
