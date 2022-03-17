@@ -1,10 +1,11 @@
 <template>
-  <div id="vbg" class="absolute top-0 z-0 h-full w-full"></div>
+  <div id="vbg" ref="vbg" class="absolute top-0 z-0 h-full w-full"></div>
   <div
-    class="relative -mt-[4.25rem] flex h-screen w-full flex-col items-center justify-between pt-[4.25rem]"
+    ref="landingContent"
+    class="relative -mt-[4.25rem] flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
     <div class="flex-grow"></div>
-    <div class="w-full pl-16 text-left">
+    <div class="w-full pl-4 lg:pl-16 text-left">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
         The <span class="">greatest</span> community of highschool programmers
@@ -41,7 +42,7 @@
       <fa-icon class="text-4xl" :icon="['fa', 'angles-down']" />
     </div>
   </div>
-  <h1>this is the first element</h1>
+  <h1 v-for="i in 10" :key="i">this is the first element</h1>
 
   <p>{{ $t("test") }}</p>
 </template>
@@ -83,6 +84,7 @@
         speed: 0.8,
         zoom: window.innerHeight / 1385,
       });
+      this.onWindowResize(null);
     },
     created() {
       window.addEventListener("resize", this.onWindowResize);
@@ -93,8 +95,10 @@
     methods: {
       onWindowResize(e: Event) {
         (this.effect as any).setOptions({
-          zoom: window.innerHeight / 1385,
+          zoom: screen.height / 1385,
         });
+        (this.$refs.landingContent as HTMLElement).style["height"] = `${(this.$refs.vbg as HTMLElement).clientHeight}px`
+        // console.log((this.$refs.vbg as HTMLElement).clientHeight);
       },
       redditClicked() {
         window.open("https://reddit.com/r/cshighschoolers", "_blank");
