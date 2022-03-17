@@ -5,7 +5,7 @@
     class="relative -mt-[4.25rem] flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
     <div class="flex-grow"></div>
-    <div class="w-full pl-4 lg:pl-16 text-left">
+    <div class="w-full pl-4 text-left lg:pl-16">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
         The <span class="">greatest</span> community of highschool programmers
@@ -97,7 +97,9 @@
         (this.effect as any).setOptions({
           zoom: screen.height / 1385,
         });
-        (this.$refs.landingContent as HTMLElement).style["height"] = `${(this.$refs.vbg as HTMLElement).clientHeight}px`
+        (this.$refs.landingContent as HTMLElement).style["height"] = `${
+          (this.$refs.vbg as HTMLElement).clientHeight
+        }px`;
         // console.log((this.$refs.vbg as HTMLElement).clientHeight);
       },
       redditClicked() {

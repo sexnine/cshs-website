@@ -1,6 +1,6 @@
 <template>
   <p
-    class="rounded-md px-2 text-lg font-bold decoration-2 cursor-pointer"
+    class="cursor-pointer rounded-md px-2 text-lg font-bold decoration-2"
     :class="[
       highlighted
         ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-800'
