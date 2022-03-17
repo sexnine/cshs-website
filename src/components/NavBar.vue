@@ -38,7 +38,6 @@
 
   const onWindowResize = () => {
     windowWidth.value = window.innerWidth;
-    console.log(windowWidth.value);
   };
 
   const mobileNavBar = computed(() => {

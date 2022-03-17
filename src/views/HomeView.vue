@@ -84,7 +84,7 @@
         speed: 0.8,
         zoom: window.innerHeight / 1385,
       });
-      this.onWindowResize(null);
+      this.onWindowResize();
     },
     created() {
       window.addEventListener("resize", this.onWindowResize);
@@ -93,7 +93,7 @@
       window.removeEventListener("resize", this.onWindowResize);
     },
     methods: {
-      onWindowResize(e: Event) {
+      onWindowResize() {
         (this.effect as any).setOptions({
           zoom: screen.height / 1385,
         });
