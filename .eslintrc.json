@@ -16,6 +16,7 @@
   },
   "plugins": [],
   "rules": {
-    "vue/component-definition-name-casing": ["warn", "kebab-case"]
+    "vue/component-definition-name-casing": ["warn", "kebab-case"],
+    "linebreak-style": "off"
   }
 }
