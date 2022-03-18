@@ -174,11 +174,6 @@
         currentDomainExampleIndex: 0,
       };
     },
-    computed: {
-      customDomainField() {
-        return (this.$refs.customDomainField as HTMLElement).innerText;
-      },
-    },
     async mounted() {
       // @ts-ignore
       this.effect = window.VANTA.FOG({
