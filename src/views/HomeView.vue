@@ -2,10 +2,10 @@
   <div id="vbg" ref="vbg" class="absolute top-0 z-0 h-full w-full"></div>
   <div
     ref="landingContent"
-    class="relative -mt-[4.25rem] flex w-full flex-col items-center justify-between pt-[4.25rem]"
+    class="relative -mt-[4.25rem] mb-12 flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
     <div class="flex-grow"></div>
-    <div class="w-full pl-4 pr-4 flex flex-col items-center">
+    <div class="flex w-full flex-col items-center pl-4 pr-4">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
         The <span class="">greatest</span> community of highschool programmers
@@ -33,23 +33,126 @@
           :icon="['fa', 'user-plus']"
           text="Sign up"
           class="bg-red-500 text-glow-[red-400]"
+          @click="signUpClicked"
         />
       </div>
     </div>
     <div class="flex flex-grow flex-col justify-end pb-8">
       <!-- <div class="flex-grow" /> -->
       <h2 class="pb-2 text-lg">Scroll down for more info</h2>
-      <fa-icon class="text-4xl" :icon="['fa', 'angles-down']" />
+      <fa-icon class="animate-bounce text-4xl" :icon="['fa', 'angles-down']" />
     </div>
   </div>
-  <h1 v-for="i in 10" :key="i">this is the first element</h1>
+  <div class="px-4">
+    <div class="mb-16 flex flex-col items-center">
+      <h2
+        class="pb-4 text-4xl font-bold underline decoration-red-500 decoration-4 underline-offset-1"
+      >
+        About us
+      </h2>
+      <p class="max-w-3xl text-2xl">
+        We are a lively community of highschool students around the world united
+        by a shared passion for computer science and programming. Our goal is to
+        provide an open and welcoming community for like minded students that
+        fosters an interconnected and harmonious enviroment for our members.
+        <br />
+        <br />
+        No matter your skill level or age there is place for you among our
+        members.
+        <!-- <br /> <br />
+      Wanna show off your projects? Get some help with your code? Or maybe just wanna chat? -->
+      </p>
+    </div>
 
-  <p>{{ $t("test") }}</p>
+    <div class="mb-16 flex flex-col items-center">
+      <h2
+        class="pb-4 text-4xl font-bold underline decoration-orange-500 decoration-4 underline-offset-1"
+      >
+        Events
+      </h2>
+      <p class="max-w-3xl pb-4 text-2xl">
+        We host a multitude of events such as hackathons and guest speakers
+        (soon™) which provide both insights into the industry and fun challenges
+        to improve our programming abilities.
+      </p>
+      <div
+        class="flex w-full max-w-sm flex-col items-start rounded-lg bg-gradient-to-r from-indigo-300 to-pink-300 px-6 py-4 text-left text-black"
+      >
+        <p class="pb-2 text-xl font-semibold">Next Hackathon</p>
+        <p class="text-lg">
+          <span class="font-bold">When: </span>
+          Join the
+          <a
+            class="font-semibold underline decoration-blue-500 decoration-2"
+            href="https://discord.com/invite/DyNJ2dMQPr"
+            >Discord</a
+          >
+          or
+          <a
+            class="font-semibold underline decoration-orange-500 decoration-2"
+            href="https://www.reddit.com/r/cshighschoolers"
+            >Subreddit</a
+          >
+          and find out 😉
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-16 flex flex-col items-center">
+      <h2
+        class="pb-2 text-4xl font-bold underline decoration-green-500 decoration-4 underline-offset-1"
+      >
+        Free Domains
+      </h2>
+      <p class="mb-4 rounded-md bg-orange-500 px-2 text-white">Coming soon</p>
+      <p class="max-w-3xl pb-4 text-2xl">
+        Need a domain but don't want to pay for one? We got you!
+      </p>
+      <div
+        class="mb-4 flex items-center rounded-md bg-gray-300 px-4 py-2 text-lg"
+      >
+        <fa-icon :icon="['fa', 'lock']" class="pr-2 text-green-600" />
+        <p class="text-gray-700">https://</p>
+        <span
+          ref="customDomainField"
+          class="w-full font-bold text-black outline-none"
+          role="textbox"
+          contenteditable
+          style="background: transparent"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          type="text"
+        ></span>
+        <p class="text-black">.cshs.dev</p>
+        <p class="text-gray-700">/</p>
+      </div>
+      <p class="max-w-3xl pb-4 text-2xl">
+        Rep a sleek, sexy, short domain that you can use for anything. <br />
+        A personal website or project perhaps?
+        <br />
+        <br />
+        Get a fully customizable domain and connect it with whatever you want.
+        Your domain, your DNS! <br />
+        We'll also provide guides to connect your domain to different services
+        such as Github Pages and Vercel. <br />
+        Your domain is also automatically protected by Cloudflare.
+      </p>
+    </div>
+  </div>
+  <!-- <h1 v-for="i in 1" :key="i">this is the first element</h1>
+
+  <p>{{ $t("test") }}</p> -->
 </template>
 
 <script lang="ts">
   import { defineComponent } from "vue";
   import LandingButton from "../components/LandingButton.vue";
+
+  function aSleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   export default defineComponent({
     components: {
@@ -58,9 +161,25 @@
     data() {
       return {
         effect: null,
+        domainExamples: [
+          "yourname",
+          "coolproject",
+          "sexnine",
+          "equinox",
+          "awnmp",
+          "nuke",
+          "frityet",
+          "cdev",
+        ],
+        currentDomainExampleIndex: 0,
       };
     },
-    mounted() {
+    computed: {
+      customDomainField() {
+        return (this.$refs.customDomainField as HTMLElement).innerText;
+      },
+    },
+    async mounted() {
       // @ts-ignore
       this.effect = window.VANTA.FOG({
         el: "#vbg",
@@ -69,22 +188,16 @@
         gyroControls: false,
         minHeight: 200.0,
         minWidth: 200.0,
-        // highlightColor: 0xf72a72,
-        // midtoneColor: 0xe8425b,
-        // lowlightColor: 0xf7df2c,
-        // highlightColor: 0xfabf03,
-        // midtoneColor: 0xff2f12,
-        // lowlightColor: 0x2f03ff,
-        // baseColor: 0x2b2155,
         highlightColor: 0xfabf03,
         midtoneColor: 0xf71f00,
         lowlightColor: 0x2a00f7,
         baseColor: 0xffae9b,
         blurFactor: 0.8,
         speed: 0.8,
-        zoom: window.innerHeight / 1385,
+        zoom: screen.height / 1385,
       });
       this.onWindowResize();
+      this.domainExample();
     },
     created() {
       window.addEventListener("resize", this.onWindowResize);
@@ -93,6 +206,42 @@
       window.removeEventListener("resize", this.onWindowResize);
     },
     methods: {
+      async domainExample() {
+        while (true) {
+          let currentText = (this.$refs.customDomainField as HTMLElement)
+            .innerText;
+          // console.log(currentText);
+          // console.log(this.domainExamples.includes(currentText));
+          // console.log(!currentText);
+          if (this.domainExamples.includes(currentText) || !currentText) {
+            await this.domainAnimation();
+          }
+          await aSleep(3000);
+        }
+      },
+      async domainAnimation() {
+        let el = this.$refs.customDomainField as HTMLElement;
+        for (let i = 0; i < 15; i++) {
+          if (!el.innerText) {
+            break;
+          }
+          el.innerText = el.innerText.slice(0, -1);
+          await aSleep(100);
+        }
+        let newText = this.domainExamples[this.currentDomainExampleIndex];
+        let currentText = "";
+        // console.log("Prev index: " + this.currentDomainExampleIndex)
+        this.currentDomainExampleIndex =
+          this.currentDomainExampleIndex >= this.domainExamples.length - 1
+            ? 0
+            : this.currentDomainExampleIndex + 1;
+        // console.log("After index: " + this.currentDomainExampleIndex)
+        for (let i = 0; i < newText.length; i++) {
+          currentText += newText.charAt(i);
+          el.innerText = currentText;
+          await aSleep(150);
+        }
+      },
       onWindowResize() {
         (this.effect as any).setOptions({
           zoom: screen.height / 1385,
@@ -107,6 +256,9 @@
       },
       discordClicked() {
         window.open("https://discord.gg/DyNJ2dMQPr", "_blank");
+      },
+      signUpClicked() {
+        alert("Coming soon :)\nsorry lol");
       },
     },
   });

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-50 py-4 px-6 text-3xl font-semibold shadow-md backdrop-blur-lg dark:bg-black dark:bg-opacity-50"
+    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-4 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50"
   >
     <div>
       <h1>cshighschoolers</h1>
@@ -13,7 +13,7 @@
         :highlighted="item == selected"
       />
     </div>
-    <div v-else>
+    <div v-else class="invisible">
       <fa-icon
         :icon="['fa', 'bars']"
         class="rounded-md bg-white bg-opacity-50 p-2"
@@ -26,13 +26,7 @@
   import { computed, ref } from "vue";
   import NavItem from "./NavItem.vue";
 
-  const navItems = ref([
-    "Welcome",
-    "About Us",
-    "Events",
-    "Hackathons",
-    "Free Domains",
-  ]);
+  const navItems = ref(["Welcome", "About Us", "Events", "Free Domains"]);
   const selected = ref("Welcome");
   const windowWidth = ref(0);
 
