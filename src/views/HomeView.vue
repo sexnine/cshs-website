@@ -6,7 +6,7 @@
   >
     <div class="flex-grow"></div>
     <div class="flex w-full flex-col items-center pl-4 pr-4">
-      <h1 class="pb-4 text-5xl">cshighschoolers</h1>
+      <h1 class="pb-4 text-5xl">r/cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
         The <span class="">greatest</span> community of highschool programmers
       </h1>
