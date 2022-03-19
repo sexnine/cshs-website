@@ -3,7 +3,7 @@
     class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-4 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50"
   >
     <div>
-      <h1>cshighschoolers</h1>
+      <h1>r/cshighschoolers</h1>
     </div>
     <div v-if="!mobileNavBar" class="flex items-center gap-x-2">
       <NavItem
