@@ -1,4 +1,6 @@
 .firebaserc
+# Firebase caching
+.firebase
 
 # Logs
 logs
