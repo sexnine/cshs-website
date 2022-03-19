@@ -150,9 +150,6 @@
   import { defineComponent } from "vue";
   import LandingButton from "../components/LandingButton.vue";
   // @ts-ignore
-  // const THREE = import("../threeMin.js");
-  // import * as THREE from "../threeMin.js";
-  // @ts-ignore
   import FOG from "vanta/dist/vanta.fog.min";
 
   function aSleep(ms: number) {
@@ -195,7 +192,6 @@
         blurFactor: 0.8,
         speed: 0.8,
         zoom: screen.height / 1385,
-        // THREE: THREE,
       });
       this.onWindowResize();
       this.domainExample();
