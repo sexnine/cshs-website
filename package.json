@@ -6,6 +6,7 @@
     "dev": "vite",
     "serve": "vite --host",
     "build": "npm run lint && vue-tsc --noEmit && vite build",
+    "build-only": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "npm run eslint && npm run prettier",
     "eslint": "eslint --fix \"**/*.{vue,js,ts}\" || exit 0",
@@ -20,6 +21,7 @@
     "@vueuse/core": "^7.6.2",
     "firebase": "^9.6.7",
     "pinia": "^2.0.11",
+    "vanta": "^0.5.21",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12"

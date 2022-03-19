@@ -149,6 +149,11 @@
 <script lang="ts">
   import { defineComponent } from "vue";
   import LandingButton from "../components/LandingButton.vue";
+  // @ts-ignore
+  // const THREE = import("../threeMin.js");
+  // import * as THREE from "../threeMin.js";
+  // @ts-ignore
+  import FOG from "vanta/dist/vanta.fog.min";
 
   function aSleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -176,7 +181,7 @@
     },
     async mounted() {
       // @ts-ignore
-      this.effect = window.VANTA.FOG({
+      this.effect = FOG({
         el: "#vbg",
         mouseControls: false,
         touchControls: false,
@@ -190,6 +195,7 @@
         blurFactor: 0.8,
         speed: 0.8,
         zoom: screen.height / 1385,
+        // THREE: THREE,
       });
       this.onWindowResize();
       this.domainExample();
