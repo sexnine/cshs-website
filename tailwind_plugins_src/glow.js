@@ -10,7 +10,7 @@ function getFromTWColor(value, colors) {
       }
       return res;
     } else {
-      res = colors[stringSplit[0]];
+      let res = colors[stringSplit[0]];
       return typeof res === "string" ? res : null;
     }
   } else {
