@@ -108,26 +108,7 @@
       <p class="max-w-3xl pb-4 text-2xl">
         Need a domain but don't want to pay for one? We got you!
       </p>
-      <div
-        class="mb-4 flex items-center rounded-md bg-gray-300 px-4 py-2 text-lg"
-      >
-        <fa-icon :icon="['fa', 'lock']" class="pr-2 text-green-600" />
-        <p class="text-gray-700">https://</p>
-        <span
-          ref="customDomainField"
-          class="w-full font-bold text-black outline-none"
-          role="textbox"
-          contenteditable
-          style="background: transparent"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-          type="text"
-        ></span>
-        <p class="text-black">.cshs.dev</p>
-        <p class="text-gray-700">/</p>
-      </div>
+      <DomainExample />
       <p class="max-w-3xl pb-4 text-2xl">
         Rep a sleek, sexy, short domain that you can use for anything. <br />
         A personal website or project perhaps?
@@ -141,24 +122,23 @@
       </p>
     </div>
   </div>
-  <!-- <h1 v-for="i in 1" :key="i">this is the first element</h1>
-
-  <p>{{ $t("test") }}</p> -->
 </template>
 
 <script lang="ts">
+  // TODO: Use Composition API instead (even tho it kinda sucks)
+  // TODO: Add types for vanta (thanks typescript for making my life terrible)
+
   import { defineComponent } from "vue";
   import LandingButton from "../components/LandingButton.vue";
+  // eslint-disable-next-line
   // @ts-ignore
   import FOG from "vanta/dist/vanta.fog.min";
-
-  function aSleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
+  import DomainExample from "../components/DomainExample.vue";
 
   export default defineComponent({
     components: {
       LandingButton,
+      DomainExample,
     },
     data() {
       return {
@@ -177,6 +157,7 @@
       };
     },
     async mounted() {
+      // eslint-disable-next-line
       // @ts-ignore
       this.effect = FOG({
         el: "#vbg",
@@ -194,7 +175,6 @@
         zoom: screen.height / 1385,
       });
       this.onWindowResize();
-      this.domainExample();
     },
     created() {
       window.addEventListener("resize", this.onWindowResize);
@@ -203,50 +183,14 @@
       window.removeEventListener("resize", this.onWindowResize);
     },
     methods: {
-      async domainExample() {
-        while (true) {
-          let currentText = (this.$refs.customDomainField as HTMLElement)
-            .innerText;
-          // console.log(currentText);
-          // console.log(this.domainExamples.includes(currentText));
-          // console.log(!currentText);
-          if (this.domainExamples.includes(currentText) || !currentText) {
-            await this.domainAnimation();
-          }
-          await aSleep(3000);
-        }
-      },
-      async domainAnimation() {
-        let el = this.$refs.customDomainField as HTMLElement;
-        for (let i = 0; i < 15; i++) {
-          if (!el.innerText) {
-            break;
-          }
-          el.innerText = el.innerText.slice(0, -1);
-          await aSleep(100);
-        }
-        let newText = this.domainExamples[this.currentDomainExampleIndex];
-        let currentText = "";
-        // console.log("Prev index: " + this.currentDomainExampleIndex)
-        this.currentDomainExampleIndex =
-          this.currentDomainExampleIndex >= this.domainExamples.length - 1
-            ? 0
-            : this.currentDomainExampleIndex + 1;
-        // console.log("After index: " + this.currentDomainExampleIndex)
-        for (let i = 0; i < newText.length; i++) {
-          currentText += newText.charAt(i);
-          el.innerText = currentText;
-          await aSleep(150);
-        }
-      },
       onWindowResize() {
+        // eslint-disable-next-line
         (this.effect as any).setOptions({
           zoom: screen.height / 1385,
         });
         (this.$refs.landingContent as HTMLElement).style["height"] = `${
           (this.$refs.vbg as HTMLElement).clientHeight
         }px`;
-        // console.log((this.$refs.vbg as HTMLElement).clientHeight);
       },
       redditClicked() {
         window.open("https://reddit.com/r/cshighschoolers", "_blank");
