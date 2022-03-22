@@ -13,7 +13,7 @@
       autocapitalize="off"
       spellcheck="false"
       type="text"
-    ></span>
+    />
     <p class="text-black">.cshs.dev</p>
     <p class="text-gray-700">/</p>
   </div>

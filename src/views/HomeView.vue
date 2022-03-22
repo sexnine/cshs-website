@@ -1,10 +1,10 @@
 <template>
-  <div id="vbg" ref="vbg" class="absolute top-0 z-0 h-full w-full"></div>
+  <div id="vbg" ref="vbg" class="absolute top-0 z-0 h-full w-full" />
   <div
     ref="landingContent"
     class="relative -mt-[4.25rem] mb-12 flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
-    <div class="flex-grow"></div>
+    <div class="flex-grow" />
     <div class="flex w-full flex-col items-center pl-4 pr-4">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">

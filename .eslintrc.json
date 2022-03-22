@@ -17,6 +17,7 @@
   "plugins": [],
   "rules": {
     "vue/component-definition-name-casing": ["warn", "kebab-case"],
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "vue/script-setup-uses-vars": "error"
   }
 }
