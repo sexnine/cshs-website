@@ -18,6 +18,7 @@
   "rules": {
     "vue/component-definition-name-casing": ["warn", "kebab-case"],
     "linebreak-style": "off",
-    "vue/script-setup-uses-vars": "error"
+    "vue/script-setup-uses-vars": "error",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

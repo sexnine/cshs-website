@@ -85,13 +85,14 @@
   });
 
   const scrollYPos = ref(0);
-  const scrollPoints = ref({});
+  const scrollPoints = ref<{ [key: number]: string; }>({});
 
   const selected = computed(() => {
     let scrollPoint = Object.keys(scrollPoints.value)
       .map((x) => parseInt(x))
       .sort((a, b) => b - a)
       .find((x) => scrollYPos.value >= (x as unknown as number));
+    // @ts-ignore
     return scrollPoints.value[scrollPoint];
   });
 
@@ -101,6 +102,8 @@
 
   window.addEventListener("scroll", onScroll);
   window.addEventListener("resize", onWindowResize);
+  // TODO: TS bullshit
+  // @ts-ignore
   inject("mitt").on("viewMounted", () => onWindowResize());
   onWindowResize();
 </script>

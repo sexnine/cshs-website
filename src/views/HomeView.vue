@@ -130,7 +130,6 @@
 
   import { defineComponent } from "vue";
   import LandingButton from "../components/LandingButton.vue";
-  // eslint-disable-next-line
   // @ts-ignore
   import FOG from "vanta/dist/vanta.fog.min";
   import DomainExample from "../components/DomainExample.vue";
@@ -158,7 +157,6 @@
       };
     },
     async mounted() {
-      // eslint-disable-next-line
       // @ts-ignore
       this.effect = FOG({
         el: "#vbg",
@@ -176,6 +174,7 @@
         zoom: screen.height / 1385,
       });
       this.onWindowResize();
+      // @ts-ignore
       this.mitt.emit("viewMounted");
     },
     created() {
