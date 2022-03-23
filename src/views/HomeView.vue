@@ -1,6 +1,7 @@
 <template>
   <div id="vbg" ref="vbg" class="absolute top-0 z-0 h-full w-full" />
   <div
+    id="welcome-section"
     ref="landingContent"
     class="relative -mt-[4.25rem] mb-12 flex w-full flex-col items-center justify-between pt-[4.25rem]"
   >
@@ -38,13 +39,12 @@
       </div>
     </div>
     <div class="flex flex-grow flex-col justify-end pb-8">
-      <!-- <div class="flex-grow" /> -->
       <h2 class="pb-2 text-lg">Scroll down for more info</h2>
       <fa-icon class="animate-bounce text-4xl" :icon="['fa', 'angles-down']" />
     </div>
   </div>
   <div class="px-4">
-    <div class="mb-16 flex flex-col items-center">
+    <div id="about-us-section" class="mb-16 flex flex-col items-center">
       <h2
         class="pb-4 text-4xl font-bold underline decoration-red-500 decoration-4 underline-offset-1"
       >
@@ -64,7 +64,7 @@
       </p>
     </div>
 
-    <div class="mb-16 flex flex-col items-center">
+    <div id="events-section" class="mb-16 flex flex-col items-center">
       <h2
         class="pb-4 text-4xl font-bold underline decoration-orange-500 decoration-4 underline-offset-1"
       >
@@ -98,7 +98,7 @@
       </div>
     </div>
 
-    <div class="mb-16 flex flex-col items-center">
+    <div id="domains-section" class="mb-16 flex flex-col items-center">
       <h2
         class="pb-2 text-4xl font-bold underline decoration-green-500 decoration-4 underline-offset-1"
       >
@@ -140,6 +140,7 @@
       LandingButton,
       DomainExample,
     },
+    inject: ["mitt"],
     data() {
       return {
         effect: null,
@@ -175,6 +176,7 @@
         zoom: screen.height / 1385,
       });
       this.onWindowResize();
+      this.mitt.emit("viewMounted");
     },
     created() {
       window.addEventListener("resize", this.onWindowResize);
