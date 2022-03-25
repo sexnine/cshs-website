@@ -17,13 +17,13 @@ const global = defineStore("main", {
     },
     clearUser() {
       this.user = null;
-    }
+    },
   },
 })();
 
 onAuthStateChanged(auth, (user) => {
-  console.log(`👤 Auth State Changed: ${user?.uid}`)
+  console.log(`👤 Auth State Changed: ${user?.uid}`);
   global.setUser(user);
-})
+});
 
 export { global };

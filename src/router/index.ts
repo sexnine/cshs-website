@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/dash",
     name: "dashboard",
     component: () => import("../views/AccountDashboard.vue"),
-  }
+  },
 ];
 
 const router = createRouter({

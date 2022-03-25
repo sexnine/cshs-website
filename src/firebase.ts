@@ -9,12 +9,11 @@ const firebaseConfig = {
   storageBucket: "cshs-website.appspot.com",
   messagingSenderId: "848700220904",
   appId: "1:848700220904:web:fda2053a9a5e95f512305d",
-  measurementId: "G-4BL65H3C0V"
+  measurementId: "G-4BL65H3C0V",
 };
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-
 
 export { app, analytics, auth };

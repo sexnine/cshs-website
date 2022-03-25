@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-2 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50 items-center"
+    class="sticky-header z-50 flex w-full items-center justify-between bg-white bg-opacity-40 py-2 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50"
   >
     <div>
       <h1>cshighschoolers</h1>
@@ -14,8 +14,14 @@
         @click="item.clicked"
       />
       <div class="relative">
-        <img src="https://cdn.discordapp.com/avatars/807958370887270400/3cd3a7987a276f1d0d07ed43c9e657bf.png" class="aspect-square max-h-12 rounded-full ml-2 cursor-pointer shadow-lg" />
-        <fa-icon :icon="['fa', 'angle-down']" class="absolute bottom-0 right-0 text-black bg-white bg-opacity-70 aspect-square rounded-full text-lg cursor-pointer" />
+        <img
+          src="https://cdn.discordapp.com/avatars/807958370887270400/3cd3a7987a276f1d0d07ed43c9e657bf.png"
+          class="ml-2 aspect-square max-h-12 cursor-pointer rounded-full shadow-lg"
+        />
+        <fa-icon
+          :icon="['fa', 'angle-down']"
+          class="absolute bottom-0 right-0 aspect-square cursor-pointer rounded-full bg-white bg-opacity-70 text-lg text-black"
+        />
       </div>
     </div>
     <div v-else class="invisible">
@@ -35,7 +41,7 @@
   watch(router.currentRoute, async (oldVal, newVal) => {
     console.log(oldVal);
     console.log(newVal);
-  })
+  });
 
   const windowWidth = ref(0);
 
@@ -48,21 +54,9 @@
   }
 
   const navItems = ref([
-    new NavItem(
-      "home",
-      "Home",
-      async () => window.scrollTo(0, 0),
-    ),
-    new NavItem(
-      "hackathons",
-      "Hackathons",
-      async () => window.scrollTo(0, 0),
-    ),
-    new NavItem(
-      "dash",
-      "Dashboard",
-      async () => window.scrollTo(0, 0),
-    ),
+    new NavItem("home", "Home", async () => window.scrollTo(0, 0)),
+    new NavItem("hackathons", "Hackathons", async () => window.scrollTo(0, 0)),
+    new NavItem("dash", "Dashboard", async () => window.scrollTo(0, 0)),
   ]);
 
   const onWindowResize = () => {
@@ -74,7 +68,7 @@
   });
 
   const selected = computed(() => {
-    return "home"
+    return "home";
   });
   window.addEventListener("resize", onWindowResize);
   onWindowResize();
