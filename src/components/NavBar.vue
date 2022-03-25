@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-4 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50"
+    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-2 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50 items-center"
   >
     <div>
       <h1>cshighschoolers</h1>
@@ -8,11 +8,15 @@
     <div v-if="!mobileNavBar" class="flex items-center gap-x-2">
       <NavItemComponent
         v-for="item in navItems"
-        :key="item.label"
+        :key="item.id"
         :name="item.label"
-        :highlighted="item.label == selected"
+        :highlighted="item.id == selected"
         @click="item.clicked"
       />
+      <div class="relative">
+        <img src="https://cdn.discordapp.com/avatars/807958370887270400/3cd3a7987a276f1d0d07ed43c9e657bf.png" class="aspect-square max-h-12 rounded-full ml-2 cursor-pointer shadow-lg" />
+        <fa-icon :icon="['fa', 'angle-down']" class="absolute bottom-0 right-0 text-black bg-white bg-opacity-70 aspect-square rounded-full text-lg cursor-pointer" />
+      </div>
     </div>
     <div v-else class="invisible">
       <fa-icon
@@ -24,87 +28,55 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, inject, ref } from "vue";
+  import { computed, ref, watch } from "vue";
   import NavItemComponent from "./NavItem.vue";
+  import router from "../router";
+
+  watch(router.currentRoute, async (oldVal, newVal) => {
+    console.log(oldVal);
+    console.log(newVal);
+  })
 
   const windowWidth = ref(0);
 
   class NavItem {
     constructor(
+      public id: string,
       public label: string,
-      public clicked: () => Promise<any>,
-      public docId: string
+      public clicked: () => Promise<any>
     ) {}
   }
 
-  const getElementYPosition = (id: string) => {
-    let topPos = document.getElementById(id)?.getBoundingClientRect()?.top;
-    if (topPos === undefined) return;
-    return topPos + window.scrollY - 68;
-  };
-
-  const scrollToEl = (id: string) => {
-    window.scrollTo(0, getElementYPosition(id) ?? 0);
-  };
-
   const navItems = ref([
     new NavItem(
-      "Welcome",
+      "home",
+      "Home",
       async () => window.scrollTo(0, 0),
-      "welcome-section"
     ),
     new NavItem(
-      "About Us",
-      async () => scrollToEl("about-us-section"),
-      "about-us-section"
+      "hackathons",
+      "Hackathons",
+      async () => window.scrollTo(0, 0),
     ),
     new NavItem(
-      "Events",
-      async () => scrollToEl("events-section"),
-      "events-section"
-    ),
-    new NavItem(
-      "Free Domains",
-      async () => scrollToEl("domains-section"),
-      "domains-section"
+      "dash",
+      "Dashboard",
+      async () => window.scrollTo(0, 0),
     ),
   ]);
 
   const onWindowResize = () => {
     windowWidth.value = window.innerWidth;
-    scrollPoints.value = {};
-    navItems.value.forEach((x) => {
-      let elYPos = getElementYPosition(x.docId) ?? 0;
-      elYPos = elYPos > 0 ? elYPos : 0;
-      scrollPoints.value[elYPos] = x.label;
-    });
   };
 
   const mobileNavBar = computed(() => {
     return windowWidth.value < 900;
   });
 
-  const scrollYPos = ref(0);
-  const scrollPoints = ref<{ [key: number]: string; }>({});
-
   const selected = computed(() => {
-    let scrollPoint = Object.keys(scrollPoints.value)
-      .map((x) => parseInt(x))
-      .sort((a, b) => b - a)
-      .find((x) => scrollYPos.value >= (x as unknown as number));
-    // @ts-ignore
-    return scrollPoints.value[scrollPoint];
+    return "home"
   });
-
-  const onScroll = () => {
-    scrollYPos.value = window.scrollY;
-  };
-
-  window.addEventListener("scroll", onScroll);
   window.addEventListener("resize", onWindowResize);
-  // TODO: TS bullshit
-  // @ts-ignore
-  inject("mitt").on("viewMounted", () => onWindowResize());
   onWindowResize();
 </script>
 
