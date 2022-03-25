@@ -38,9 +38,10 @@
   import NavItemComponent from "./NavItem.vue";
   import router from "../router";
 
-  watch(router.currentRoute, async (oldVal, newVal) => {
+  watch(router.currentRoute, async (newVal, oldVal) => {
     console.log(oldVal);
     console.log(newVal);
+    selected.value = newVal.name ?? "";
   });
 
   const windowWidth = ref(0);
@@ -54,9 +55,9 @@
   }
 
   const navItems = ref([
-    new NavItem("home", "Home", async () => window.scrollTo(0, 0)),
+    new NavItem("home", "Home", async () => router.push("/")),
     new NavItem("hackathons", "Hackathons", async () => window.scrollTo(0, 0)),
-    new NavItem("dash", "Dashboard", async () => window.scrollTo(0, 0)),
+    new NavItem("dashboard", "Dashboard", async () => router.push("/dash")),
   ]);
 
   const onWindowResize = () => {
@@ -67,9 +68,7 @@
     return windowWidth.value < 900;
   });
 
-  const selected = computed(() => {
-    return "home";
-  });
+  let selected = ref("");
   window.addEventListener("resize", onWindowResize);
   onWindowResize();
 </script>

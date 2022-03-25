@@ -29,11 +29,14 @@
             @click="discordClicked"
           />
         </div>
-        <h2 class="pb-4">Or sign up for more features 👀</h2>
+        <h2 v-if="!isSignedIn" class="pb-4">Or sign in for more features 👀</h2>
+        <h2 v-else class="pb-4">
+          Or head to your dashboard for more features 👀
+        </h2>
         <LandingButton
-          :icon="['fa', 'user-plus']"
-          text="Sign up"
-          class="bg-red-500 text-glow-[red-400]"
+          :icon="isSignedIn ? ['fa', 'house-user'] : ['fab', 'github']"
+          :text="isSignedIn ? 'Dashboard' : 'Sign in with GitHub'"
+          :class="isSignedIn ? 'bg-red-500 text-white' : 'bg-black text-white'"
           @click="signUpClicked"
         />
       </div>
@@ -133,6 +136,7 @@
   // @ts-ignore
   import FOG from "vanta/dist/vanta.fog.min";
   import DomainExample from "../components/DomainExample.vue";
+  import { global as store } from "../store";
 
   export default defineComponent({
     components: {
@@ -154,6 +158,8 @@
           "cdev",
         ],
         currentDomainExampleIndex: 0,
+        // isSignedIn: store.isSignedIn,
+        isSignedIn: false,
       };
     },
     async mounted() {
