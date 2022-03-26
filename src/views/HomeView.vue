@@ -147,19 +147,8 @@
     data() {
       return {
         effect: null,
-        domainExamples: [
-          "yourname",
-          "coolproject",
-          "sexnine",
-          "equinox",
-          "awnmp",
-          "nuke",
-          "frityet",
-          "cdev",
-        ],
-        currentDomainExampleIndex: 0,
         // isSignedIn: store.isSignedIn,
-        isSignedIn: false,
+        isSignedIn: true,
       };
     },
     async mounted() {
