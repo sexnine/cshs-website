@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-4 px-6 text-3xl font-semibold shadow-md backdrop-blur-md dark:bg-gray-900 dark:bg-opacity-50"
+    class="sticky-header z-50 flex w-full justify-between bg-white bg-opacity-40 py-4 px-6 text-3xl font-semibold shadow-md backdrop-blur-md firefox:bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-50"
   >
     <div>
       <h1>cshighschoolers</h1>
@@ -85,7 +85,7 @@
   });
 
   const scrollYPos = ref(0);
-  const scrollPoints = ref<{ [key: number]: string; }>({});
+  const scrollPoints = ref<{ [key: number]: string }>({});
 
   const selected = computed(() => {
     let scrollPoint = Object.keys(scrollPoints.value)
