@@ -9,7 +9,7 @@
     <div class="flex w-full flex-col items-center pl-4 pr-4">
       <h1 class="pb-4 text-5xl">cshighschoolers</h1>
       <h1 class="pb-6 text-3xl">
-        The <span class="">greatest</span> community of highschool programmers
+        The greatest community of highschool programmers
       </h1>
       <div
         class="flex w-full flex-col rounded-lg bg-white bg-opacity-50 p-5 dark:bg-gray-900 sm:w-min"
@@ -45,7 +45,7 @@
   <div class="px-4">
     <div id="about-us-section" class="mb-16 flex flex-col items-center">
       <h2
-        class="pb-4 text-4xl font-bold underline decoration-red-500 decoration-4 underline-offset-1"
+        class="pb-4 text-4xl font-bold underline decoration-red-500 decoration-4 underline-offset-1 firefox:underline-offset-2"
       >
         About us
       </h2>
@@ -65,7 +65,7 @@
 
     <div id="events-section" class="mb-16 flex flex-col items-center">
       <h2
-        class="pb-4 text-4xl font-bold underline decoration-orange-500 decoration-4 underline-offset-1"
+        class="pb-4 text-4xl font-bold underline decoration-orange-500 decoration-4 underline-offset-1 firefox:underline-offset-2"
       >
         Events
       </h2>
@@ -99,7 +99,7 @@
 
     <div id="domains-section" class="mb-16 flex flex-col items-center">
       <h2
-        class="pb-2 text-4xl font-bold underline decoration-green-500 decoration-4 underline-offset-1"
+        class="pb-2 text-4xl font-bold underline decoration-green-500 decoration-4 underline-offset-1 firefox:underline-offset-2"
       >
         Free Domains
       </h2>
@@ -151,6 +151,7 @@
           "nuke",
           "frityet",
           "cdev",
+          "beever",
         ],
         currentDomainExampleIndex: 0,
       };

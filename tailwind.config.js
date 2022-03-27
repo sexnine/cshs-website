@@ -1,5 +1,6 @@
 const colors = require("tailwindcss/colors");
 const glowPlugin = require("./tailwind_plugins_src/glow");
+const firefoxSelector = require("./tailwind_plugins_src/firefoxSelector");
 
 module.exports = {
   darkMode: "class",
@@ -24,5 +25,5 @@ module.exports = {
       black: colors.black,
     },
   },
-  plugins: [glowPlugin],
+  plugins: [glowPlugin, firefoxSelector],
 };
