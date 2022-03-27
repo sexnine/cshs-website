@@ -206,4 +206,8 @@
   });
 </script>
 
-<style></style>
+<style scoped>
+h2 {
+      text-decoration-skip-ink: none;
+}
+</style>
