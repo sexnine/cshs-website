@@ -39,7 +39,6 @@
       </div>
     </div>
     <div class="flex flex-grow flex-col justify-end pb-8">
-      <h2 class="pb-2 text-lg">Scroll down for more info</h2>
       <fa-icon class="animate-bounce text-4xl" :icon="['fa', 'angles-down']" />
     </div>
   </div>
