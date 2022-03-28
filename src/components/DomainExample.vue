@@ -31,6 +31,7 @@
     "nuke",
     "frityet",
     "cdev",
+    "beever",
   ];
   let currentDomainExampleIndex = 0;
   const customDomainField = ref<HTMLElement>();

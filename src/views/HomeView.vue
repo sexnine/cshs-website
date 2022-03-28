@@ -143,18 +143,6 @@
     data() {
       return {
         effect: null,
-        domainExamples: [
-          "yourname",
-          "coolproject",
-          "sexnine",
-          "equinox",
-          "awnmp",
-          "nuke",
-          "frityet",
-          "cdev",
-          "beever",
-        ],
-        currentDomainExampleIndex: 0,
       };
     },
     async mounted() {
@@ -208,7 +196,7 @@
 </script>
 
 <style scoped>
-h2 {
-      text-decoration-skip-ink: none;
-}
+  h2 {
+    text-decoration-skip-ink: none;
+  }
 </style>
