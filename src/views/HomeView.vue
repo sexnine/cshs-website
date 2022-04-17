@@ -186,7 +186,7 @@
         window.open("https://reddit.com/r/cshighschoolers", "_blank");
       },
       discordClicked() {
-        window.open("https://discord.gg/DyNJ2dMQPr", "_blank");
+        window.open("https://discord.gg/YVv9CZ9qKX", "_blank");
       },
       signUpClicked() {
         alert("Coming soon :)\nsorry lol");
